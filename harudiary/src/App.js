@@ -1,12 +1,12 @@
 import React from 'react'
 import './App.css';
-import { BrowserRouter, Routes, Route, Link} from "react-router-dom"
+import { BrowserRouter, Routes, Route} from "react-router-dom"
 
 import Sidebar from './Sidebar';
 import MyPage from "./Pages/MyPage"
 import Timeline from "./Pages/Timeline"
 import Signup from "./Pages/Signup"
-import { Landing } from 'mocha/lib/reporters';
+import Landing from './Pages/Landing';
 
 function App() {
   return (
@@ -15,6 +15,7 @@ function App() {
         <div className='App'>
           <main>
             <Sidebar/>
+
             <Routes>
               <Route path='/' element={<Landing/>}></Route>
               <Route path='/signup' element={<Signup/>}></Route>
