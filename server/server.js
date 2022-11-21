@@ -4,6 +4,9 @@ const path = require('path');
 
 const PORT = 8080;
 
+const { login } = require('./functions/login');
+const { signup } = require('./functions/signup');
+
 app.listen(PORT, () => {
   console.log(`listening on ${PORT}`);
 });
@@ -17,9 +20,11 @@ app.get('/', (req, res) => {
 });
 
 app.post('/login', (req, res) => {
-  const data = req.body;
-  if (data) res.status(200).send('post success');
-  else res.status(400).send('Invalid Request');
+  login(req, res);
+});
+
+app.post('/signup', (req, res) => {
+  signup(req, res);
 });
 
 app.get('*', (req, res) => {
