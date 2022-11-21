@@ -1,0 +1,74 @@
+body{
+    height: 100%;
+    background-color: #EAE2DC;
+}
+#title{
+    font-size: 100px;
+    font-family: Glitten;
+    src: url("./Glitten-Regular.otf");
+    letter-spacing: .2rem;
+
+}
+#border{
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+    width: 500px;
+    height: 45px;
+    margin: auto;
+}
+#border-1{
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+    border-top: none;
+    width: 500px;
+    height: 45px;
+    margin: auto;
+}
+#formbox{
+    font-family: Glitten;
+    src: url("./Glitten-Regular.otf");
+    color: black; 
+    margin: auto;
+    border-style: none;
+    width:490px;
+    height:40px;
+    background-color:#EAE2DC;
+    text-align: center;
+}
+#loginBTN{
+    position: absolute;
+    left: 53.5%;
+    margin-top: 100px;
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+    height: 45px;
+    width: 200px;
+    background-color: #EAE2DC;
+    font-family: Glitten;
+    src: url("./Glitten-Regular.otf");
+    color: black;
+    font-size: 25px;
+}
+#title_highlighter{
+    background-color: #A7FF00;
+    width: 500px;
+    height: 40px;
+    z-index: 3;
+    opacity: 30%;
+    position:absolute;
+    left: 32.5%;
+    top: 25%;
+}
+#highlighter{
+    background-color: #A7FF00;
+    width: 120px;
+    height: 15px;
+    z-index: 3;
+    opacity: 30%;
+    position:absolute;
+    left: 20%;
+    top: 53%;
+}
