@@ -19,6 +19,23 @@ async function userSignUp(data) {
   }
 }
 
+async function userSignIn(data) {
+  const { username, password } = data;
+  try {
+    const signInUser = await prisma.user.findFirst({
+      where: {
+        username,
+        password,
+      },
+    });
+    return signInUser;
+  } catch (e) {
+    console.log(e);
+    return null;
+  }
+}
+
 module.exports = {
   userSignUp,
+  userSignIn,
 };

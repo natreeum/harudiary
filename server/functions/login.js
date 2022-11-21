@@ -1,6 +1,7 @@
 // prisma here
+const { userSignIn } = require('../../data/prisma/scripts/user');
 
-const login = (req, res) => {
+const login = async (req, res) => {
   const data = req.body;
   const dataKeys = Object.keys(data);
   if (
@@ -10,7 +11,15 @@ const login = (req, res) => {
     !data
   )
     res.status(400).send('Invalid Request');
-  else res.status(200).send('post success');
+  const signInUser = await userSignIn(data);
+  if (!signInUser)
+    res.status(400).json({ status: 'failed', content: 'No matched user' });
+  else {
+    res.status(200).json({
+      status: 'success',
+      userId: signInUser.id,
+    });
+  }
 };
 
 module.exports = {

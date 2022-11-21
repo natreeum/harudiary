@@ -15,7 +15,6 @@ const signup = async (req, res) => {
   const newUser = await userSignUp(data);
   if (!newUser) res.status(400).send('Invalid Request');
   else {
-    console.log(newUser);
     res.status(200).json({
       status: 'success',
       userId: newUser.id,
