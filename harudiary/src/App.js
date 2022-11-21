@@ -14,6 +14,7 @@ function App() {
         <div className='App'>
           <main>
             <Sidebar/>
+            <Route path='/'></Route>
           </main>
         </div>
       </BrowserRouter>
