@@ -3,7 +3,18 @@ import "./Landing.css"
 const Landing = () => {
     return(
        <div>
-        <p>landing</p>
+        <div id="title">
+            <h1>HARU DIARY</h1>
+        </div>
+        <div id="fieldset">
+            <p>username</p>
+            <input id="username"></input>
+            <p>password</p>
+            <input id="password"></input> <br/><br/>
+            <button id="signin"> sign in </button><br/><br/>
+            <button id="signup"> Sign up</button><br/><br/>
+            <button id="forgot">Forgot your password?</button>
+        </div>
        </div> 
     )
 }
