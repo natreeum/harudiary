@@ -1,0 +1,47 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       Int      @id @default(autoincrement())
+  signedUp DateTime @default(now())
+  username String
+  password String
+  email    String
+}
+
+model Weeklygoal {
+  id            Int      @id @default(autoincrement())
+  uploaded      DateTime @default(now())
+  modified      DateTime @default(now())
+  userId        Int
+  weekStartData String
+  content       String
+  isDone        Boolean
+}
+
+model Todos {
+  id       Int      @id @default(autoincrement())
+  uploaded DateTime @default(now())
+  modified DateTime @default(now())
+  userId   Int
+  date     String
+  content  String
+  isDone   Boolean
+}
+
+model Diary {
+  id       Int      @id @default(autoincrement())
+  uploaded DateTime @default(now())
+  modified DateTime @default(now())
+  userId   Int
+  content  String
+}
