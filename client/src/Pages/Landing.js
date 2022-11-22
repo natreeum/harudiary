@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
+import {Link} from "react-router-dom"
 import "./Landing.css"
 export default function Landing() {
     const [username, setUsername] = useState('');
@@ -41,12 +42,17 @@ export default function Landing() {
                         onChange={(e)=>setPassword(e.target.value)}/>
                 </Form.Group>
             </div>    
-
+            <Link to='/mypage'>
                 <Button 
                     id="loginBTN" size="lg" type="submit" disabled={!validateForm()}>
                     continue
                     <div id="highlighter"></div>
                 </Button>
+            </Link>
+            <Link to='/signup'>
+                sign up
+            </Link>
+                
             </Form>
         </div>
        </div> 
