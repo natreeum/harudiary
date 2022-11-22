@@ -2,7 +2,6 @@ import React from 'react'
 import './App.css';
 import { BrowserRouter, Routes, Route} from "react-router-dom"
 
-import Sidebar from './Sidebar';
 import MyPage from "./Pages/MyPage"
 import Timeline from "./Pages/Timeline"
 import Signup from "./Pages/Signup"
@@ -14,8 +13,6 @@ function App() {
       <BrowserRouter>
         <div className='App'>
           <main>
-            <Sidebar/>
-
             <Routes>
               <Route path='/' element={<Landing/>}></Route>
               <Route path='/signup' element={<Signup/>}></Route>
