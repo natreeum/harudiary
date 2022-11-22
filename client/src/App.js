@@ -6,6 +6,7 @@ import MyPage from "./Pages/MyPage"
 import Timeline from "./Pages/Timeline"
 import Signup from "./Pages/Signup"
 import Landing from './Pages/Landing';
+import Recovery from './Pages/Recovery'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
               <Route path='/signup' element={<Signup/>}></Route>
               <Route path='/mypage' element={<MyPage/>}></Route>
               <Route path='/timeline' element={<Timeline/>}></Route>
+              <Route path='/recover' element={<Recovery/>}></Route>
             </Routes>
 
           </main>
