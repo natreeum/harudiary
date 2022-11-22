@@ -1,0 +1,15 @@
+#title_highlighter1{
+    background-color: #A7FF00;
+    height: 50px;
+    width: 900px;
+    z-index: 3;
+    position: relative;
+    bottom: 200px;
+    opacity: 30%;
+    display: inline-block;
+}
+#text{
+    font-family: Glitten;
+    src: url("./Glitten-Regular.otf");
+    font-size: 15px
+}

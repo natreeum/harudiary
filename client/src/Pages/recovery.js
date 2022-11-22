@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import {Link} from "react-router-dom"
+import './Recovery.css'
 
 const Recovery = () => {
     const [email, setEmail] = useState('');
@@ -16,8 +17,10 @@ const Recovery = () => {
     return(
         <div id="recover">
         <div id="title">
-            <p>recover</p>
+            <p>password recovery</p>
+            <div id="title_highlighter1"></div>
         </div>
+        <p id="text">please enter email to recover your password.</p>
         <Form onSubmit={handleSubmit}>
         <div id="border"> 
         <Form.Group size="lg" controlId="email">
