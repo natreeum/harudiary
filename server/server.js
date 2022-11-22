@@ -4,8 +4,8 @@ const path = require('path');
 
 const PORT = 8080;
 
-const { login } = require('./functions/login');
-const { signup } = require('./functions/signup');
+const { signIn } = require('./functions/signIn.js');
+const { signUp } = require('./functions/signUp.js');
 
 app.listen(PORT, () => {
   console.log(`listening on ${PORT}`);
@@ -19,12 +19,12 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../harudiary/build/index.html'));
 });
 
-app.post('/login', (req, res) => {
-  login(req, res);
+app.post('/signin', (req, res) => {
+  signIn(req, res);
 });
 
 app.post('/signup', (req, res) => {
-  signup(req, res);
+  signUp(req, res);
 });
 
 app.get('*', (req, res) => {

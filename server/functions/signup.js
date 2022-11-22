@@ -1,6 +1,10 @@
-const { userSignUp } = require('../../data/prisma/scripts/user.js');
+const {
+  userSignUp,
+  userExist,
+  emailExist,
+} = require('../../data/prisma/scripts/user.js');
 
-const signup = async (req, res) => {
+const signUp = async (req, res) => {
   const data = req.body;
   const dataKeys = Object.keys(data);
   if (
@@ -9,20 +13,49 @@ const signup = async (req, res) => {
     !dataKeys.includes('password') ||
     !dataKeys.includes('email') ||
     !req.body
-  )
-    res.status(400).send('Invalid Request');
+  ) {
+    console.log(`[SignUp Failed] Invalid Request`);
+    return res
+      .status(400)
+      .json({ status: 'failed', content: 'Invalid Request' });
+  }
+
+  const finduser = await userExist(data);
+  if (finduser) {
+    console.log(`[SignUp Failed] username already exist`);
+    return res
+      .status(400)
+      .json({ status: 'failed', content: 'username Already Exist' });
+  }
+
+  const findEmail = await emailExist(data);
+  if (findEmail) {
+    console.log(`[SignUp Failed] email already exist`);
+    return res
+      .status(400)
+      .json({ status: 'failed', content: 'email Already Exist' });
+  }
 
   const newUser = await userSignUp(data);
-  if (!newUser) res.status(400).send('Invalid Request');
-  else {
+  if (!newUser) {
+    console.log(`[SignUp Failed] DB interaction failed`);
+    return res
+      .status(400)
+      .json({ status: 'failed', content: 'DB interaction failed' });
+  } else {
+    console.log(
+      `[SignUp Success] userId : ${newUser.id}, username : ${newUser.username}`
+    );
     res.status(200).json({
       status: 'success',
-      userId: newUser.id,
-      username: newUser.username,
+      content: {
+        userId: newUser.id,
+        username: newUser.username,
+      },
     });
   }
 };
 
 module.exports = {
-  signup,
+  signUp,
 };
