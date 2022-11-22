@@ -48,11 +48,13 @@ export default function Landing() {
                     continue
                     <div id="highlighter"></div>
                 </Button>
-            </Link>
+            </Link><br/>
             <Link to='/signup'>
                 sign up
-            </Link>
-                
+            </Link> <br/>
+            <Link to='recover'>
+                forgot password?
+            </Link>  
             </Form>
         </div>
        </div> 
