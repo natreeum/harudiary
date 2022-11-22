@@ -3,8 +3,6 @@ import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import "./Signup.css"
 const Signup = () => {
-    const [firstname, setFirstname] = useState('');
-    const [lastname, setLastname] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
