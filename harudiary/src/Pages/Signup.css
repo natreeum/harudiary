@@ -1,0 +1,51 @@
+#formbox{
+    font-family: Glitten;
+    src: url("./Glitten-Regular.otf");
+    color: black; 
+    margin: auto;
+    border-style: none;
+    width:490px;
+    height:40px;
+    background-color:#EAE2DC;
+    text-align: center;
+}
+#loginBTN{
+    position: absolute;
+    left: 53.5%;
+    margin-top: 100px;
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+    height: 45px;
+    width: 200px;
+    background-color: #EAE2DC;
+    font-family: Glitten;
+    src: url("./Glitten-Regular.otf");
+    color: black;
+    font-size: 25px;
+}
+#loginBTN:disabled{
+    opacity: 30%;
+}
+#loginBTN:hover:enabled{
+    background-color: #A7FF00;
+    cursor: pointer;
+    opacity: 100%;
+}
+#border{
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+    width: 500px;
+    height: 45px;
+    margin: auto;
+}
+#border-1{
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+    border-top: none;
+    width: 500px;
+    height: 45px;
+    margin: auto;
+}
