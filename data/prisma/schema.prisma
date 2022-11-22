@@ -18,7 +18,7 @@ model User {
   email    String
 }
 
-model Weeklygoal {
+model MonthlyGoal {
   id            Int      @id @default(autoincrement())
   uploaded      DateTime @default(now())
   modified      DateTime @default(now())
