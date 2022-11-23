@@ -1,7 +1,6 @@
 import React from 'react'
 import './App.css';
 import { BrowserRouter, Routes, Route} from "react-router-dom"
-
 import MyPage from "./Pages/MyPage"
 import Timeline from "./Pages/Timeline"
 import Signup from "./Pages/Signup"

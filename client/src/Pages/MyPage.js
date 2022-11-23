@@ -1,10 +1,17 @@
 import React from "react";
 import "./MyPage.css"
-const MyPage = () => {
-    return(
-       <div>
-        <p>mypage</p>
-       </div> 
-    )
+import axios from "axios"
+
+axios.defaults.withCredentials = true
+
+const MyPage = (props) => {
+    if(props.userInfo){
+        return(
+            <div>
+             <p>mypage</p>
+            </div> 
+         )
+    }
+    
 }
 export default MyPage;
