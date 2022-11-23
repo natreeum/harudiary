@@ -24,7 +24,7 @@ const signUp = async (req, res) => {
   if (finduser) {
     console.log(`[SignUp Failed] username already exist`);
     return res
-      .status(400)
+      .status(200)
       .json({ status: 'failed', content: 'username Already Exist' });
   }
 
@@ -32,7 +32,7 @@ const signUp = async (req, res) => {
   if (findEmail) {
     console.log(`[SignUp Failed] email already exist`);
     return res
-      .status(400)
+      .status(200)
       .json({ status: 'failed', content: 'email Already Exist' });
   }
 
@@ -40,7 +40,7 @@ const signUp = async (req, res) => {
   if (!newUser) {
     console.log(`[SignUp Failed] DB interaction failed`);
     return res
-      .status(400)
+      .status(200)
       .json({ status: 'failed', content: 'DB interaction failed' });
   } else {
     console.log(
