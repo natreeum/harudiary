@@ -25,7 +25,7 @@ model MonthlyGoal {
   userId        Int
   weekStartData String
   content       String
-  isDone        Boolean
+  isDone        Boolean  @default(false)
 }
 
 model Todos {
@@ -35,7 +35,7 @@ model Todos {
   userId   Int
   date     String
   content  String
-  isDone   Boolean
+  isDone   Boolean  @default(false)
 }
 
 model Diary {
