@@ -22,6 +22,7 @@ export default function Landing() {
         return loginInfo.username.length>0 && loginInfo.password.length>0
     }
     const navigate = useNavigate()
+
     function handleSubmit(event){
         let isSigninSuccess = false
         event.preventDefault();
@@ -71,12 +72,11 @@ export default function Landing() {
                 <Button 
                     id="loginBTN" size="lg" type="submit" disabled={!validateForm()}>
                     continue
-                    <div id="highlighter"></div>
                 </Button>
             <Link to='/signup'>
                 sign up
             </Link> <br/>
-            <Link to='recover'>
+            <Link to='/recover'>
                 forgot password?
             </Link>  
             </Form>
