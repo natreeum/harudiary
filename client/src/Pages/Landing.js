@@ -2,16 +2,27 @@ import React, {useState} from "react";
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import {Link} from "react-router-dom"
+import axios from "axios"
 import "./Landing.css"
+
+
 export default function Landing() {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    function validateForm(){
-        return username.length>0 && password.length>0
+    const [loginInfo, setLoginInfo] = useState({
+        username: "",
+        password: ""
+    })
+    const handleInputValue = (key) => (e) => {
+        setLoginInfo({...loginInfo, [key]: e.target.value})
     }
+    function validateForm(){
+        return loginInfo.username.length>0 && loginInfo.password.length>0
+    }
+
     function handleSubmit(event){
         event.preventDefault();
-        console.log("submit")
+        if(loginInfo.email && loginInfo.password){
+            axios.post("https://localhost:8080/landing", loginInfo)
+        }
     }
     return(
        <div className="login">
@@ -28,8 +39,8 @@ export default function Landing() {
                         id="formbox" 
                         autoFocus 
                         type="username"
-                        value={username} 
-                        onChange={(e)=>setUsername(e.target.value)} />
+                        value={loginInfo.username} 
+                        onChange={handleInputValue("username")}/>
                 </Form.Group>
             </div>
             <div id="border-1">
@@ -38,17 +49,15 @@ export default function Landing() {
                         placeholder="password"
                         id="formbox" 
                         type="password"
-                        value={password}
-                        onChange={(e)=>setPassword(e.target.value)}/>
+                        value={loginInfo.password}
+                        onChange={handleInputValue("password")}/>
                 </Form.Group>
             </div>    
-            <Link to='/mypage'>
                 <Button 
                     id="loginBTN" size="lg" type="submit" disabled={!validateForm()}>
                     continue
                     <div id="highlighter"></div>
                 </Button>
-            </Link><br/>
             <Link to='/signup'>
                 sign up
             </Link> <br/>

@@ -1,19 +1,40 @@
 import React, {useState} from "react";
+import axios from "axios";
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
-import {Link} from "react-router-dom"
 import "./Signup.css"
+import {useNavigate} from "react-router-dom"
+axios.defaults.withCredentials = true;
+
+
 const Signup = () => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [passwordCheck, setPasswordCheck] = useState('');
-    const [email, setEmail] = useState('');
-    function validateForm(){
-        return username.length>0 && password.length>0 && email.length>0 && password===passwordCheck
+    const [userInfo, setuserInfo] = useState({
+        email: "",
+        password: "",
+        username: ""
+    })
+
+    const handleInputValue = (key) => (e) => {
+        setuserInfo({...userInfo, [key]: e.target.value})
     }
-    function handleSubmit(event){
-        event.preventDefault();
-        console.log("submit")
+    const navigate = useNavigate()
+
+    const [passwordCheck, setPasswordCheck] = useState('');
+
+    function validateForm(){
+        return userInfo.username.length>0 && userInfo.password.length>0 && userInfo.email.length>0 && userInfo.password===passwordCheck
+    }
+
+    function handleSubmit(){
+        if(
+            userInfo.email &&
+            userInfo.password &&
+            userInfo.username
+        ){
+            axios.post('https://localhost:8080/signup', userInfo)
+
+            navigate("/")
+        }
     }
     return(
        <div id="signup">
@@ -28,8 +49,8 @@ const Signup = () => {
                         placeholder="email"
                         id="formbox" 
                         type="email"
-                        value={email}
-                        onChange={(e)=>setEmail(e.target.value)}/>
+                        value={userInfo.email}
+                        onChange={(e)=>{handleInputValue("email")}}/>
             </Form.Group>
         </div>
         <div id="border-1">
@@ -39,8 +60,8 @@ const Signup = () => {
                         id="formbox" 
                         autoFocus 
                         type="username"
-                        value={username} 
-                        onChange={(e)=>setUsername(e.target.value)} />
+                        value={userInfo.username} 
+                        onChange={(e)=>{handleInputValue("username")}} />
             </Form.Group>
         </div>
         <div id="border-1">
@@ -49,8 +70,8 @@ const Signup = () => {
                         placeholder="password"
                         id="formbox" 
                         type="password"
-                        value={password}
-                        onChange={(e)=>setPassword(e.target.value)}/>
+                        value={userInfo.password}
+                        onChange={(e)=>{handleInputValue("password")}} />
             </Form.Group>
         </div>
         <div id="border-1">
@@ -63,14 +84,12 @@ const Signup = () => {
                         onChange={(e)=>setPasswordCheck(e.target.value)}/>
             </Form.Group>
         </div>
-
-        <Link to='/'>
             <Button 
-                    id="loginBTN" size="lg" type="submit" disabled={!validateForm()}>
+                    id="loginBTN" size="lg" type="submit" disabled={!validateForm()}
+                    onClick={handleSubmit}>
                     continue
                     <div id="highlighter"></div>
             </Button>
-        </Link>
             
         </Form>
        </div> 
