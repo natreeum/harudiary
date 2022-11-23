@@ -31,7 +31,7 @@ const Signup = () => {
             userInfo.password &&
             userInfo.username
         ){
-            axios.post('https://localhost:8080/signup', userInfo)
+            axios.post('http://localhost:8080/signup', userInfo)
 
             navigate("/")
         }
