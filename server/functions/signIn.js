@@ -10,14 +10,16 @@ const signIn = async (req, res) => {
     !data
   ) {
     console.log(`[SignIn Failed] Invalid Request`);
-    res.status(400).json({ status: 'failed', content: 'Invalid Request' });
-    return;
+    return res
+      .status(400)
+      .json({ status: 'failed', content: 'Invalid Request' });
   }
   const signInUser = await userSignIn(data);
   if (!signInUser) {
     console.log(`[SignIn Failed] User doesn't Exist`);
-    res.status(400).json({ status: 'failed', content: 'No matched user' });
-    return;
+    return res
+      .status(400)
+      .json({ status: 'failed', content: 'No matched user' });
   } else {
     console.log(
       `[SignIn Success] userId : ${signInUser.id}, username : ${signInUser.username}`
