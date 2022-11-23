@@ -25,15 +25,22 @@ const Signup = () => {
         return userInfo.username.length>0 && userInfo.password.length>0 && userInfo.email.length>0 && userInfo.password===passwordCheck
     }
 
-    function handleSubmit(){
+    function handleSubmit(event){
+        let isSigninSuccess = false
+        event.preventDefault();
         if(
             userInfo.email &&
             userInfo.password &&
             userInfo.username
         ){
             axios.post('http://localhost:8080/signup', userInfo)
-
-            navigate("/")
+            .then((result)=>{
+                console.log(result.data.status)
+                result.data.status==="success"? isSigninSuccess=true : isSigninSuccess=false
+            })
+            .then(()=>{
+                isSigninSuccess? navigate('/signin') : console.log("failed")
+            }).catch((e)=>console.log(e))
         }
     }
     return(
@@ -50,7 +57,7 @@ const Signup = () => {
                         id="formbox" 
                         type="email"
                         value={userInfo.email}
-                        onChange={(e)=>{handleInputValue("email")}}/>
+                        onChange={handleInputValue("email")}/>
             </Form.Group>
         </div>
         <div id="border-1">
@@ -61,7 +68,7 @@ const Signup = () => {
                         autoFocus 
                         type="username"
                         value={userInfo.username} 
-                        onChange={(e)=>{handleInputValue("username")}} />
+                        onChange={handleInputValue("username")} />
             </Form.Group>
         </div>
         <div id="border-1">
@@ -71,7 +78,7 @@ const Signup = () => {
                         id="formbox" 
                         type="password"
                         value={userInfo.password}
-                        onChange={(e)=>{handleInputValue("password")}} />
+                        onChange={handleInputValue("password")} />
             </Form.Group>
         </div>
         <div id="border-1">
@@ -85,10 +92,8 @@ const Signup = () => {
             </Form.Group>
         </div>
             <Button 
-                    id="loginBTN" size="lg" type="submit" disabled={!validateForm()}
-                    onClick={handleSubmit}>
+                    id="loginBTN" size="lg" type="submit" disabled={!validateForm()}>
                     continue
-                    <div id="highlighter"></div>
             </Button>
             
         </Form>
