@@ -18,7 +18,7 @@ const signIn = async (req, res) => {
   if (!signInUser) {
     console.log(`[SignIn Failed] User doesn't Exist`);
     return res
-      .status(400)
+      .status(200)
       .json({ status: 'failed', content: 'No matched user' });
   } else {
     console.log(

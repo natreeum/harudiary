@@ -6,12 +6,15 @@ import axios from "axios"
 import {useNavigate} from "react-router-dom"
 import "./Landing.css"
 
-
+axios.defaults.withCredentials = true;
 export default function Landing() {
     const [loginInfo, setLoginInfo] = useState({
         username: "",
         password: ""
     })
+    //const [isSigninSuccess, setSigninSuccess] = useState(false) 이게왜안되지
+    
+
     const handleInputValue = (key) => (e) => {
         setLoginInfo({...loginInfo, [key]: e.target.value})
     }
@@ -19,14 +22,23 @@ export default function Landing() {
         return loginInfo.username.length>0 && loginInfo.password.length>0
     }
     const navigate = useNavigate()
-    async function handleSubmit(event){
+    function handleSubmit(event){
+        let isSigninSuccess = false
         event.preventDefault();
         if(loginInfo.username && loginInfo.password){
-            const result = await axios.post("http://localhost:8080/signin", loginInfo)
-            console.log(result)
-            navigate("/mypage")
+            axios.post("http://localhost:8080/signin", loginInfo)
+            .then((result) => {
+                console.log(result.data.status)
+                result.data.status==="success" ? isSigninSuccess=true : isSigninSuccess=false
+            })
+            .then(() => {
+                isSigninSuccess ? navigate('/mypage') : console.log("failed")})
+            .catch((e)=>console.log(e))
+            
         }
     }
+
+
     return(
        <div className="login">
         <div id="title">
