@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import {Link} from "react-router-dom"
 import axios from "axios"
+import {useNavigate} from "react-router-dom"
 import "./Landing.css"
 
 
@@ -17,11 +18,13 @@ export default function Landing() {
     function validateForm(){
         return loginInfo.username.length>0 && loginInfo.password.length>0
     }
-
-    function handleSubmit(event){
+    const navigate = useNavigate()
+    async function handleSubmit(event){
         event.preventDefault();
-        if(loginInfo.email && loginInfo.password){
-            axios.post("https://localhost:8080/landing", loginInfo)
+        if(loginInfo.username && loginInfo.password){
+            const result = await axios.post("http://localhost:8080/signin", loginInfo)
+            console.log(result)
+            navigate("/mypage")
         }
     }
     return(
@@ -33,7 +36,7 @@ export default function Landing() {
         <div id="fieldset">
             <Form onSubmit={handleSubmit}>
             <div id="border">
-                <Form.Group size="lg" controlId="username">
+                <Form.Group size="lg">
                     <Form.Control
                         placeholder="username"
                         id="formbox" 
@@ -44,7 +47,7 @@ export default function Landing() {
                 </Form.Group>
             </div>
             <div id="border-1">
-                <Form.Group size="lg" controlId="password">
+                <Form.Group size="lg">
                     <Form.Control
                         placeholder="password"
                         id="formbox" 
