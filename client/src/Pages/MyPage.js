@@ -7,8 +7,11 @@ axios.defaults.withCredentials = true
 const MyPage = (props) => {
     if(props.userInfo){
         return(
-            <div>
-             <p>mypage</p>
+            <div id="mypage">
+                <div id="title">
+                    <p>{props.userInfo.username}</p>
+                    <div id="title_highlighter"></div>
+                </div>
             </div> 
          )
     }
