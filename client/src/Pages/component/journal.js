@@ -1,4 +1,4 @@
-function journal(date, content){
+function Journal(date, content){
     return(
         <div className="journal">
             <div id="date">{date}</div>
@@ -7,4 +7,4 @@ function journal(date, content){
     )
 }
 
-export default journal
+export default Journal

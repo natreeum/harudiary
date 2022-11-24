@@ -33,13 +33,13 @@ const Signup = () => {
             userInfo.password &&
             userInfo.username
         ){
-            axios.post('http://localhost:8080/signup', userInfo)
+            axios.post("http://localhost:8080/signup", userInfo)
             .then((result)=>{
                 console.log(result.data.status)
                 result.data.status==="success"? isSigninSuccess=true : isSigninSuccess=false
             })
             .then(()=>{
-                isSigninSuccess? navigate('/signin') : console.log("failed")
+                isSigninSuccess? navigate('/') : console.log("failed")
             }).catch((e)=>console.log(e))
         }
     }
