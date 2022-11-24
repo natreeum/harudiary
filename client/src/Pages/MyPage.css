@@ -1,0 +1,16 @@
+#mypage_title{
+    font-size: 50px;
+    font-family: Glitten;
+    src: url("./Glitten-Regular.otf");
+    letter-spacing: .2rem;
+}
+#mypage_title_highlighter{
+    background-color: #A7FF00;
+    height: 25px;
+    width: 100%;
+    z-index: 3;
+    position: relative;
+    bottom: 100px;
+    opacity: 30%;
+    display: inline-block;
+}
