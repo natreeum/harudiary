@@ -42,6 +42,7 @@ model Diary {
   id       Int      @id @default(autoincrement())
   uploaded DateTime @default(now())
   modified DateTime @default(now())
+  date     String
   userId   Int
   content  String
 }
