@@ -50,46 +50,48 @@ const Signup = () => {
             <div id="title_highlighter"></div>
         </div>
         <Form onSubmit={handleSubmit}>
-        <div id="border"> 
-            <Form.Group size="lg" controlId="email">
-                    <Form.Control
-                        placeholder="email"
-                        id="formbox" 
-                        type="email"
-                        value={userInfo.email}
-                        onChange={handleInputValue("email")}/>
-            </Form.Group>
-        </div>
-        <div id="border-1">
-            <Form.Group size="lg" controlId="username">
-                    <Form.Control
-                        placeholder="username"
-                        id="formbox" 
-                        autoFocus 
-                        type="username"
-                        value={userInfo.username} 
-                        onChange={handleInputValue("username")} />
-            </Form.Group>
-        </div>
-        <div id="border-1">
-            <Form.Group size="lg" controlId="password">
-                    <Form.Control
-                        placeholder="password"
-                        id="formbox" 
-                        type="password"
-                        value={userInfo.password}
-                        onChange={handleInputValue("password")} />
-            </Form.Group>
-        </div>
-        <div id="border-1">
-            <Form.Group size="lg" controlId="password">
-                    <Form.Control
-                        placeholder="password retype"
-                        id="formbox" 
-                        type="password"
-                        value={passwordCheck}
-                        onChange={(e)=>setPasswordCheck(e.target.value)}/>
-            </Form.Group>
+        <div id="forms">
+            <div id="border"> 
+                <Form.Group size="lg" controlId="email">
+                        <Form.Control
+                            placeholder="email"
+                            id="formbox" 
+                            type="email"
+                            value={userInfo.email}
+                            onChange={handleInputValue("email")}/>
+                </Form.Group>
+            </div>
+            <div id="border-1">
+                <Form.Group size="lg" controlId="username">
+                        <Form.Control
+                            placeholder="username"
+                            id="formbox" 
+                            autoFocus 
+                            type="username"
+                            value={userInfo.username} 
+                            onChange={handleInputValue("username")} />
+                </Form.Group>
+            </div>
+            <div id="border-1">
+                <Form.Group size="lg" controlId="password">
+                        <Form.Control
+                            placeholder="password"
+                            id="formbox" 
+                            type="password"
+                            value={userInfo.password}
+                            onChange={handleInputValue("password")} />
+                </Form.Group>
+            </div>
+            <div id="border-1">
+                <Form.Group size="lg" controlId="password">
+                        <Form.Control
+                            placeholder="password retype"
+                            id="formbox" 
+                            type="password"
+                            value={passwordCheck}
+                            onChange={(e)=>setPasswordCheck(e.target.value)}/>
+                </Form.Group>
+            </div>
         </div>
             <Button 
                     id="loginBTN" size="lg" type="submit" disabled={!validateForm()}>
@@ -97,6 +99,7 @@ const Signup = () => {
             </Button>
             
         </Form>
+        
        </div> 
     )
 }

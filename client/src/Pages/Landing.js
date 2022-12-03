@@ -73,12 +73,15 @@ export default function Landing() {
                     id="loginBTN" size="lg" type="submit" disabled={!validateForm()}>
                     continue
                 </Button>
+            <div id="links">
             <Link to='/signup'>
                 sign up
             </Link> <br/>
             <Link to='/recover'>
                 forgot password?
             </Link>  
+            </div>
+
             </Form>
         </div>
        </div> 
