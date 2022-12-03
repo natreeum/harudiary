@@ -3,11 +3,11 @@ import "./MyPage.css"
 import axios from "axios"
 import Calendar from 'react-calendar'; 
 import {useState} from 'react';
-
 axios.defaults.withCredentials = true
 
 const MyPage = () => {
     const [date, setDate] = useState(new Date())
+
         return(
             <div id="mypage">
                 <div id="mypage_title">
@@ -16,9 +16,10 @@ const MyPage = () => {
                 </div> <br></br>
                 <div id="row">
                     <div className="col-lg-8" id="calendar">
-                    <Calendar onChange={setDate} value={date}/>
+                    <Calendar id="cal" onChange={setDate} value={date}/>
                     </div>
-                    <div className="col-lg-4" id="todo"></div>
+                    <div className="col-lg-4" id="todo">
+                    </div>
                 </div>
             </div> 
          )

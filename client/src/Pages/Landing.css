@@ -7,6 +7,7 @@ body{
     font-family: Glitten;
     src: url("./Glitten-Regular.otf");
     letter-spacing: .2rem;
+    height: 250px
 
 }
 #border{
@@ -69,3 +70,4 @@ body{
     opacity: 30%;
     display: inline-block;
 }
+
