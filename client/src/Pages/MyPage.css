@@ -1,3 +1,6 @@
+#mypage{
+    display: grid;
+}
 #mypage_title{
     font-size: 50px;
     font-family: Glitten;
@@ -14,15 +17,29 @@
     opacity: 30%;
     display: inline-block;
 }
+#row{
+    display: flex;
+}
 #forms{
     display: grid;
     place-items: center;
 
 }
+#calendar{
+    border-width: 2px;
+    border-color: black;
+    width: 70%;
+}
+#todo{
+    width: 30%;
+    display: flex;
+}
 .react-calendar { 
     width: 70%;
     display: inline-block;
-    color: black; 
+    color: black;
+    border-width: 2px;
+    border-color: black;
    }
    .react-calendar__navigation button {
     background: none;
