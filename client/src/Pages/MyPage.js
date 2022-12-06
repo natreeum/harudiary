@@ -19,6 +19,7 @@ const MyPage = () => {
                     <Calendar id="cal" onChange={setDate} value={date}/>
                     </div>
                     <div className="col-lg-4" id="todo">
+                        <br></br>{'todo'} 
                     </div>
                 </div>
             </div> 
