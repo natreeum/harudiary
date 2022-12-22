@@ -13,7 +13,7 @@ const newDiary = async (data) => {
   }
 };
 
-const modifyDiary = async () => {};
+const modifyDiary = async (data) => {};
 
 const deleteDiary = async () => {};
 
