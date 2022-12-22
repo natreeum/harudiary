@@ -28,20 +28,11 @@ model MonthlyGoal {
   isDone        Boolean  @default(false)
 }
 
-model Todos {
-  id       Int      @id @default(autoincrement())
-  uploaded DateTime @default(now())
-  modified DateTime @default(now())
-  userId   Int
-  date     String
-  content  String
-  isDone   Boolean  @default(false)
-}
-
 model Diary {
   id       Int      @id @default(autoincrement())
   uploaded DateTime @default(now())
   modified DateTime @default(now())
+  date     String
   userId   Int
   content  String
 }

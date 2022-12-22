@@ -17,10 +17,7 @@ app.use(express.static(path.join(__dirname, '../client/build')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use(
-  cors(
-  )
-);
+app.use(cors());
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
@@ -37,6 +34,8 @@ app.post('/signup', (req, res) => {
 app.post('/newtodo', (req, res) => {
   regTodo(req, res);
 });
+
+app.post('/newdiary', (req, res) => {});
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../harudiary/build/index.html'));
